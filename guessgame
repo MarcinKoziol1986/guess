@@ -1,0 +1,30 @@
+# The built-in random module includes objects used for generating
+# random data in different formats.
+import random
+# Create a random number for the player to guess.
+answer = random.randint(1, 20)
+
+def play():
+    ''' plays the guessing game when called. '''
+
+        # The name guess is going to be used in the below while loop.
+    # However, it needs to exist first. Otherwise the while loop
+    # is going to be asking the interpreter to compare a non-existent
+    # name binding (guess) to the answer name binding.
+    # Since no guess has been made at this point, bind guess to None.
+    guess = None
+    # Until the guess matches the answer this loop will continue.
+    while guess != answer:
+        # Prompt for a guess between 1 and 20 and convert the str value to an int.
+        # This application will fail if a non-numeric guess is entered.
+        guess = int(input('guess a number between 1 and 20 > '))
+
+        if guess > answer:
+            print('too high')
+
+        elif guess < answer:
+            print('too low')
+    print('correct!')
+
+if __name__ == '__main__':
+    play()
